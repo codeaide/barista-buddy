@@ -14,3 +14,13 @@ The control mechanism does not employ a PID logic but a simple [Bang-bang Contro
 1. **Speed** - Bang-bang control will always try to reach the setpoint as fast as possible making use of maximum power.
 1. **Error Margin** - Bang-bang control will heat up fast at the cost of accuracy. It might be an issue for industrial application but faster sensing and processing could reduce this error to make it acceptable for home applications.
 1. **Stress Factor** - PIDs apply slow switching compared to Bang-bang. When switching slow, components have time to heat up and cool down on each cycle, which causes thermal expansion and contraction cycles and mechanical stress. Switching much faster keeps components at a constant (average) temperature and avoids thermal cycling.
+
+## Modules
+
+This project is divided into several modules to reduce code complexity and make it easier to maintain. Please see the respective modules pages below for details.
+
+- [Controller](src/controller/README.md)
+- [Display](src/display/README.md)
+- [Measurement](src/measurement/README.md)
+- [Relay](src/relay/README.md)
+- [Sensor](src/sensor/README.md)
