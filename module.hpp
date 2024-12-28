@@ -30,7 +30,7 @@ class BaseModule {
      * 
      * @return True when initialized successfully, False otherwise
      */
-    bool init() {
+    virtual bool init() {
       Serial.println("Default initialization called for \"" + m_strName + "\"");
       return true;
     }
@@ -42,7 +42,7 @@ class BaseModule {
      * 
      * @return True when processed successfully, False otherwise
      */
-    bool process() {
+    virtual bool process() {
       Serial.println("Default processing called for \"" + m_strName + "\"");
       return true;
     }
