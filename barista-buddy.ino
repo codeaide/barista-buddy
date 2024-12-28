@@ -13,6 +13,9 @@
 #define MAX7219_DIN_PIN 11U
 #define MAX7219_CLK_PIN 12U
 
+// Sensor connections
+#define SENSOR_BUS_PIN 2U
+
 // display instance for MAX7219
 // we have 4 MAX7219 modules
 babu::Display oDisplay(MAX7219_DIN_PIN, MAX7219_CLK_PIN, MAX7219_CS_PIN, 5);
@@ -24,7 +27,7 @@ babu::Measurement oMeas;
 babu::Relay oRelay;
 
 // sensor instance
-babu::Sensor oSensor;
+babu::Sensor oSensor(SENSOR_BUS_PIN);
 
 // the controller instance
 babu::Controller oController;

@@ -15,6 +15,11 @@ class ISensor {
      * @brief Virtual destructor
      */
     virtual ~ISensor() { }
+
+    /**
+     * @brief Interface to read the temperature
+     */
+    virtual float getTemperature() = 0;
 };
 
 } // namespace babu
