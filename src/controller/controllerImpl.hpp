@@ -6,8 +6,10 @@
 #define BABU_CONTROLLER_IMPLEMENTATION_HEADER
 
 // includes
-#include "../../module.hpp"
+#include "../../display.hpp"
 #include "../../controller.hpp"
+#include "../../module.hpp"
+#include "../../sensor.hpp"
 
 namespace babu {
 
@@ -16,10 +18,34 @@ namespace babu {
  */
 class Controller : public BaseModule, public IController {
   public:
-    // default constructor
-    Controller();
+    /**
+     * @brief Default constructor
+     *
+     * @param[in] oSensor Sensor module instance
+     * @param[in] oDisplay Display module instance
+     */
+    Controller(ISensor& oSensor, IDisplay& oDisplay);
+
+    /**
+     * @brief Method to initialize the module
+     *
+     * @return True when initialized successfully, False otherwise
+     */
+    bool init() override;
+
+    /**
+     * @brief Method to process the module
+     *
+     * @return True when processed successfully, False otherwise
+     */
+    bool process() override;
 
   private:
+    // display module instance
+    IDisplay& m_oDisplay;
+
+    // sensor module instance
+    ISensor& m_oSensor;
 };
 
 } // namespace babu

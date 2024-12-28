@@ -30,7 +30,7 @@ babu::Relay oRelay;
 babu::Sensor oSensor(SENSOR_BUS_PIN);
 
 // the controller instance
-babu::Controller oController;
+babu::Controller oController(oSensor, oDisplay);
 
 // module array
 #define NUM_MODULES (sizeof(oModules) / sizeof(babu::BaseModule*))
