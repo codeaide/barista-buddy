@@ -18,6 +18,8 @@ class ISensor {
 
     /**
      * @brief Interface to read the temperature
+     *
+     * @return Temperature value
      */
     virtual float getTemperature() = 0;
 };

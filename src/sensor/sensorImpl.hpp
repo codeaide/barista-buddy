@@ -41,6 +41,8 @@ class Sensor : public BaseModule, public ISensor {
 
     /**
      * @brief Implementation of interface to read the temperature
+     *
+     * @return Temperature value
      */
     float getTemperature() override;
 
