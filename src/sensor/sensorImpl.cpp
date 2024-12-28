@@ -62,7 +62,7 @@ float babu::Sensor::getTemperature() {
     Serial.println("Error: Could not read temperature data");
   }
 
-  return 0.0f;
+  return tempC;
 }
 
 // Method to print the device address
