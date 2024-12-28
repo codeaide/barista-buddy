@@ -15,6 +15,13 @@ class IDisplay {
      * @brief Virtual destructor
      */
     virtual ~IDisplay() { }
+
+    /**
+     * @brief Interface to display the temperature
+     *
+     * @param[in] tempValue Temperature value
+     */
+    virtual void displayTemperature(float tempValue) = 0;
 };
 
 } // namespace babu

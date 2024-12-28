@@ -35,11 +35,11 @@ class Display : public BaseModule, public IDisplay {
     bool init() override;
 
     /**
-     * @brief Method to process the module
+     * @brief Implementation of interface to display the temperature
      *
-     * @return True when processed successfully, False otherwise
+     * @param[in] tempValue Temperature value
      */
-    bool process() override;
+    void displayTemperature(float tempValue) override;
 
   private:
     // LED control object
