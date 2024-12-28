@@ -5,8 +5,17 @@
 #include "src/relay/relayImpl.hpp"
 #include "src/sensor/sensorImpl.hpp"
 
-// display instance
-babu::Display oDisplay;
+// MAX7219 connections
+// Arduino pin 10 is connected to CS
+// Arduino pin 11 is connected to DIN
+// Arduino pin 12 is connected to CLK
+#define MAX7219_CS_PIN  10U
+#define MAX7219_DIN_PIN 11U
+#define MAX7219_CLK_PIN 12U
+
+// display instance for MAX7219
+// we have 4 MAX7219 modules
+babu::Display oDisplay(MAX7219_DIN_PIN, MAX7219_CLK_PIN, MAX7219_CS_PIN, 5);
 
 // measurement instance
 babu::Measurement oMeas;

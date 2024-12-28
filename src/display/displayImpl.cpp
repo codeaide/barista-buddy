@@ -17,13 +17,9 @@ constexpr byte num7[8] = {B11111100,B11001100,B00001100,B00011000,B00110000,B001
 constexpr byte num8[8] = {B01111000,B11001100,B11001100,B01111000,B11001100,B11001100,B01111000,B00000000};
 constexpr byte num9[8] = {B01111000,B11001100,B11001100,B01111100,B00001100,B00011000,B01110000,B00000000};
 
-/* initialize LedControl with pin connections */
-/* pin 11 is connected to the DataIn          */
-/* pin 12 is connected to the CLK             */
-/* pin 10 is connected to LOAD/CS             */
-/* We have 4 MAX72XX                          */
-babu::Display::Display() : BaseModule("Display"),
-                           m_oLedCtrl(11,12,10,5) {
+// Default constructor
+babu::Display::Display(int pinDIN, int pinCLK, int pinCS, int nDevices) : BaseModule("Display"),
+                                                                          m_oLedCtrl(pinDIN, pinCLK, pinCS, nDevices) {
 }
 
 // Method to initialize the module
@@ -45,7 +41,7 @@ bool babu::Display::init() {
     // clear the display
     m_oLedCtrl.clearDisplay(iDevice);
   }
-  
+
   return true;
 }
 

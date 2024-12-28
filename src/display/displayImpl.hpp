@@ -17,8 +17,15 @@ namespace babu {
  */
 class Display : public BaseModule, IDisplay {
   public:
-    /** Default constructor */
-    Display();
+    /**
+     * @brief Default constructor
+     *
+     * @param[in] pinDIN Pin connected to DIN
+     * @param[in] pinCLK Pin connected to CLK
+     * @param[in] pinCS Pin connected to CS
+     * @param[in] nDevices Number of devices
+     */
+    Display(int pinDIN, int pinCLK, int pinCS, int nDevices);
 
     /**
      * @brief Method to initialize the module
