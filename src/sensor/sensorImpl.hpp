@@ -14,7 +14,7 @@ namespace babu {
 /**
  * @brief Sensor implementation
  */
-class Sensor : public BaseModule, ISensor {
+class Sensor : public BaseModule, public ISensor {
   public:
     /** Default constructor */
     Sensor();

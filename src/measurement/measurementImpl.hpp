@@ -14,7 +14,7 @@ namespace babu {
 /**
  * @brief Measurement implementation
  */
-class Measurement : public BaseModule, IMeasurement {
+class Measurement : public BaseModule, public IMeasurement {
   public:
     /** Default constructor */
     Measurement();

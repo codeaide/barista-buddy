@@ -15,7 +15,7 @@ namespace babu {
 /**
  * @brief Display implementation
  */
-class Display : public BaseModule, IDisplay {
+class Display : public BaseModule, public IDisplay {
   public:
     /**
      * @brief Default constructor

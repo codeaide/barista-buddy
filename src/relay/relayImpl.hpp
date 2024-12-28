@@ -14,7 +14,7 @@ namespace babu {
 /**
  * @brief Relay implementation
  */
-class Relay : public BaseModule, IRelay {
+class Relay : public BaseModule, public IRelay {
   public:
     /** Default constructor */
     Relay();

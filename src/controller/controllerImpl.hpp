@@ -14,7 +14,7 @@ namespace babu {
 /**
  * @brief Controller implementation
  */
-class Controller : public BaseModule, IController {
+class Controller : public BaseModule, public IController {
   public:
     // default constructor
     Controller();
