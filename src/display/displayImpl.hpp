@@ -6,6 +6,7 @@
 #define BABU_DISPLAY_IMPLEMENTATION_HEADER
 
 // includes
+#include <LedControl.h>
 #include "../../module.hpp"
 #include "../../display.hpp"
 
@@ -19,7 +20,23 @@ class Display : public BaseModule, IDisplay {
     /** Default constructor */
     Display();
 
+    /**
+     * @brief Method to initialize the module
+     *
+     * @return True when initialized successfully, False otherwise
+     */
+    bool init() override;
+
+    /**
+     * @brief Method to process the module
+     *
+     * @return True when processed successfully, False otherwise
+     */
+    bool process() override;
+
   private:
+    // LED control object
+    LedControl m_oLedCtrl;
 };
 
 } // namespace babu

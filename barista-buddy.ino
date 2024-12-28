@@ -74,5 +74,7 @@ void setup() {
 void loop() {
   Serial.println("Running...");
 
+  oDisplay.process();
+
   delay(1000);
 }
