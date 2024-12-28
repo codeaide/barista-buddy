@@ -20,6 +20,16 @@ babu::Sensor oSensor;
 // the controller instance
 babu::Controller oController;
 
+// module array
+#define NUM_MODULES (sizeof(oModules) / sizeof(babu::BaseModule*))
+babu::BaseModule* oModules[] = {
+  &oDisplay,
+  &oMeas,
+  &oRelay,
+  &oSensor,
+  &oController,
+};
+
 /**
  * @brief Setup code that runs once during startup
  */
@@ -30,42 +40,20 @@ void setup() {
   // wait for serial port to connect. needed for native USB port only
   while (!Serial);
 
-  // set the LED pin mode
-  pinMode(LED_BUILTIN, OUTPUT);
-
-  // initialize display module
-  if (!oDisplay.init())
-  {
-    Serial.println("Failed to initialize display module!");
-  }
-
-  // initialize measurement module
-  if (!oMeas.init())
-  {
-    Serial.println("Failed to initialize measurement module!");
-  }
-
-  // initialize relay module
-  if (!oRelay.init())
-  {
-    Serial.println("Failed to initialize relay module!");
-  }
-
-  // initialize sensor module
-  if (!oSensor.init())
-  {
-    Serial.println("Failed to initialize sensor module!");
-  }
-
-  // finally initialize controller module
-  if (!oController.init())
-  {
-    Serial.println("Failed to initialize controller module!");
-  }
-
   Serial.println("==================================================");
   Serial.println("                   Brew Barista                   ");
   Serial.println("==================================================");
+
+  // set the LED pin mode
+  pinMode(LED_BUILTIN, OUTPUT);
+
+  // loop through all available modules
+  for (int iIndex = 0; iIndex < NUM_MODULES ; iIndex++) {
+    // initialize module
+    if (!oModules[iIndex]->init()) {
+      Serial.println("Failed to initialize \"" + oModules[iIndex]->getName() + "\" module!");
+    }
+  }
 }
 
 /**
@@ -74,7 +62,13 @@ void setup() {
 void loop() {
   Serial.println("Running...");
 
-  oDisplay.process();
+  // loop through all available modules
+  for (int iIndex = 0; iIndex < NUM_MODULES ; iIndex++) {
+    // process module
+    if (!oModules[iIndex]->process()) {
+      Serial.println("Failed to process \"" + oModules[iIndex]->getName() + "\" module!");
+    }
+  }
 
   delay(1000);
 }
