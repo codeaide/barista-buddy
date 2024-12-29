@@ -62,14 +62,14 @@ bool babu::Display::init() {
 // Implementation of interface to display the temperature
 void babu::Display::displayTemperature(float tempValue) {
   int roundVal = -1;
-  bool decimalAtEnd = false;
+  bool bDecimalAtEnd = false;
 
   // cast the value to integer that can be represented
   if(tempValue < 999.f) {
     roundVal = static_cast<int>(tempValue * 10.f);
   } else {
     roundVal = static_cast<int>(tempValue * 1.f);
-    decimalAtEnd = true;
+    bDecimalAtEnd = true;
   }
 
   // setup the LED sequence to be displayed
@@ -100,5 +100,12 @@ void babu::Display::displayTemperature(float tempValue) {
     m_oLedCtrl.setRow(2, iRow, LED_SEQ_TEMP[1][iRow]);
     m_oLedCtrl.setRow(1, iRow, LED_SEQ_TEMP[2][iRow]);
     m_oLedCtrl.setRow(0, iRow, LED_SEQ_TEMP[3][iRow]);
+  }
+
+  // show decimal point
+  if (bDecimalAtEnd) {
+    m_oLedCtrl.setLed(0, 7, 7, true);
+  } else {
+    m_oLedCtrl.setLed(1, 7, 7, true);
   }
 }
