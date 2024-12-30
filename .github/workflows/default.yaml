@@ -39,6 +39,14 @@ jobs:
         run: |
           arduino-cli core update-index
           arduino-cli core install $ARDUINO_PLATFORM
+      # Install required Arduino libraries
+      - name: Install Arduino libraries
+        run: |
+          arduino-cli lib update-index
+          arduino-cli lib install ArduinoMqttClient
+          arduino-cli lib install DallasTemperature
+          arduino-cli lib install LedControl
+          arduino-cli lib install OneWire
       # Finally, compile the sketch, using the FQBN that was set
       - name: Compile Sketch
         run: arduino-cli compile --fqbn $ARDUINO_PLATFORM_FQBN
