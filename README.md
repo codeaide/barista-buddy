@@ -1,6 +1,6 @@
 # Barista Buddy
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Workflow Status](https://github.com/codeaide/barista-buddy/workflows/default/badge.svg)](https://github.com/codeaide/barista-buddy/actions)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Workflow Status](https://github.com/codeaide/barista-buddy/actions/workflows/default.yaml/badge.svg)](https://github.com/codeaide/barista-buddy/actions)
 
 Barista Buddy is an Arduino based project for controlling the temperature of SBDU (Single Boiler Dual Use) espresso machines without PID. This is not yet another Arduino based PID controller but a simple companion to monitor the temperature and configure it using a smartphone without any physical buttons, displays or knobs.
 
