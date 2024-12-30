@@ -1,0 +1,45 @@
+# The name of the workflow visible on GitHub UI
+name: Barista Buddy Workflow
+
+# Tell GitHub when to run the workflow
+on:
+  # When a commit is pushed
+  push:
+    branches:
+      - master
+      - 'proof-of-concept'
+  # A Pull Request into master branch is opened
+  pull_request:
+    branches:
+      - master
+  # Also run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Specify the list of jobs that will be run concurrently
+jobs:
+  # Name of the job - can be whatever
+  build:
+    # Specify the platform GitHub should use to run the workflow
+    runs-on: [ ubuntu-latest ]
+    # Environment variables for this job
+    env:
+      ARDUINO_PLATFORM: 'arduino:avr'
+      ARDUINO_PLATFORM_FQBN: 'arduino:avr:uno'
+    # Define the list of steps this job will run
+    steps:
+      # First, we clone the repo using the checkout action
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Next we use the arduino/setup-arduino-cli action to install and
+      # configure the Arduino CLI on the system
+      - name: Setup Arduino CLI
+        uses: arduino/setup-arduino-cli@v2
+      # Install required Arduino core platform
+      - name: Install Arduino Core Platform
+        run: |
+          arduino-cli core update-index
+          arduino-cli core install $ARDUINO_PLATFORM
+      # Finally, compile the sketch, using the FQBN that was set
+      - name: Compile Sketch
+        run: arduino-cli compile --fqbn $ARDUINO_PLATFORM_FQBN
+
