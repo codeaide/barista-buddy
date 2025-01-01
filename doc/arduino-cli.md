@@ -66,6 +66,12 @@ $ arduino-cli core search uno
 $ arduino-cli core install arduino:renesas_uno
 ```
 
+Version of platform core can be explicitly specified as shown below.
+
+```
+$ arduino-cli core install arduino:avr@1.8.6
+```
+
 The command below lists all Arduino boards connected to the computer.
 
 ```
@@ -83,8 +89,14 @@ $ arduino-cli lib list
 Libraries can be searched and installed using the CLI tool.
 
 ```
-$ arduino-cli lib search Jled
-$ arduino-cli lib install Jled
+$ arduino-cli lib search LedControl
+$ arduino-cli lib install LedControl
+```
+
+Specific library versions can also be installed using the CLI tool.
+
+```
+$ arduino-cli lib install LedControl@1.0.6
 ```
 
 ### Compiling Sketches
