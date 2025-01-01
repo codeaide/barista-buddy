@@ -1,7 +1,6 @@
 // includes
 #include "src/controller/controllerImpl.hpp"
 #include "src/display/displayImpl.hpp"
-#include "src/measurement/measurementImpl.hpp"
 #include "src/relay/relayImpl.hpp"
 #include "src/sensor/sensorImpl.hpp"
 
@@ -20,9 +19,6 @@
 // we have 4 MAX7219 modules
 babu::Display oDisplay(MAX7219_DIN_PIN, MAX7219_CLK_PIN, MAX7219_CS_PIN, 5);
 
-// measurement instance
-babu::Measurement oMeas;
-
 // relay instance
 babu::Relay oRelay;
 
@@ -36,7 +32,6 @@ babu::Controller oController(oSensor, oDisplay);
 #define NUM_MODULES (sizeof(oModules) / sizeof(babu::BaseModule*))
 babu::BaseModule* oModules[] = {
   &oDisplay,
-  &oMeas,
   &oRelay,
   &oSensor,
   &oController,

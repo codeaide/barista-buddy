@@ -23,6 +23,5 @@ This project is divided into several modules to reduce code complexity and make 
 
 - [Controller](src/controller/README.md)
 - [Display](src/display/README.md)
-- [Measurement](src/measurement/README.md)
 - [Relay](src/relay/README.md)
 - [Sensor](src/sensor/README.md)
