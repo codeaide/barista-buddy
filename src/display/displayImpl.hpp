@@ -7,8 +7,8 @@
 
 // includes
 #include <LedControl.h>
+#include "../../frontend.hpp"
 #include "../../module.hpp"
-#include "../../display.hpp"
 
 namespace babu {
 

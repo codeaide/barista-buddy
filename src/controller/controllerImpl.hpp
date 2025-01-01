@@ -6,8 +6,8 @@
 #define BABU_CONTROLLER_IMPLEMENTATION_HEADER
 
 // includes
-#include "../../display.hpp"
 #include "../../controller.hpp"
+#include "../../frontend.hpp"
 #include "../../module.hpp"
 #include "../../sensor.hpp"
 
