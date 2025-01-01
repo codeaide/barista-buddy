@@ -22,6 +22,6 @@ The control mechanism does not employ a PID logic but a simple [Bang-bang Contro
 This project is divided into several modules to reduce code complexity and make it easier to maintain. Please see the respective modules pages below for details.
 
 - [Controller](src/controller/README.md)
-- [Display](src/display/README.md)
+- [Frontend](src/frontend/README.md)
 - [Relay](src/relay/README.md)
 - [Sensor](src/sensor/README.md)

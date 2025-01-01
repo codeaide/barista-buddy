@@ -1,6 +1,6 @@
 // includes
 #include "src/controller/controllerImpl.hpp"
-#include "src/display/displayImpl.hpp"
+#include "src/frontend/frontendImpl.hpp"
 #include "src/relay/relayImpl.hpp"
 #include "src/sensor/sensorImpl.hpp"
 
@@ -17,7 +17,7 @@
 
 // display instance for MAX7219
 // we have 4 MAX7219 modules
-babu::Display oDisplay(MAX7219_DIN_PIN, MAX7219_CLK_PIN, MAX7219_CS_PIN, 5);
+babu::Frontend oFrontend(MAX7219_DIN_PIN, MAX7219_CLK_PIN, MAX7219_CS_PIN, 5);
 
 // relay instance
 babu::Relay oRelay;
@@ -26,12 +26,12 @@ babu::Relay oRelay;
 babu::Sensor oSensor(SENSOR_BUS_PIN);
 
 // the controller instance
-babu::Controller oController(oSensor, oDisplay);
+babu::Controller oController(oSensor, oFrontend);
 
 // module array
 #define NUM_MODULES (sizeof(oModules) / sizeof(babu::BaseModule*))
 babu::BaseModule* oModules[] = {
-  &oDisplay,
+  &oFrontend,
   &oRelay,
   &oSensor,
   &oController,

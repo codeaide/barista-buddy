@@ -22,9 +22,9 @@ class Controller : public BaseModule, public IController {
      * @brief Default constructor
      *
      * @param[in] oSensor Sensor module instance
-     * @param[in] oDisplay Display module instance
+     * @param[in] oDisplay Frontend module instance
      */
-    Controller(ISensor& oSensor, IDisplay& oDisplay);
+    Controller(ISensor& oSensor, IFrontend& oFrontend);
 
     /**
      * @brief Method to initialize the module
@@ -41,8 +41,8 @@ class Controller : public BaseModule, public IController {
     bool process() override;
 
   private:
-    // display module instance
-    IDisplay& m_oDisplay;
+    // frontend module instance
+    IFrontend& m_oFrontend;
 
     // sensor module instance
     ISensor& m_oSensor;

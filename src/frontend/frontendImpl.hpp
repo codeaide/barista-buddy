@@ -1,9 +1,9 @@
 /**
- * @brief Display implementation header file
+ * @brief Frontend implementation header file
  */
 
-#ifndef BABU_DISPLAY_IMPLEMENTATION_HEADER
-#define BABU_DISPLAY_IMPLEMENTATION_HEADER
+#ifndef BABU_FRONTEND_IMPLEMENTATION_HEADER
+#define BABU_FRONTEND_IMPLEMENTATION_HEADER
 
 // includes
 #include <LedControl.h>
@@ -13,9 +13,9 @@
 namespace babu {
 
 /**
- * @brief Display implementation
+ * @brief Frontend implementation
  */
-class Display : public BaseModule, public IDisplay {
+class Frontend : public BaseModule, public IFrontend {
   public:
     /**
      * @brief Default constructor
@@ -25,7 +25,7 @@ class Display : public BaseModule, public IDisplay {
      * @param[in] pinCS Pin connected to CS
      * @param[in] nDevices Number of devices
      */
-    Display(int pinDIN, int pinCLK, int pinCS, int nDevices);
+    Frontend(int pinDIN, int pinCLK, int pinCS, int nDevices);
 
     /**
      * @brief Method to initialize the module
@@ -48,4 +48,4 @@ class Display : public BaseModule, public IDisplay {
 
 } // namespace babu
 
-#endif /* BABU_DISPLAY_IMPLEMENTATION_HEADER */
+#endif /* BABU_FRONTEND_IMPLEMENTATION_HEADER */

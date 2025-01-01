@@ -1,20 +1,20 @@
 /**
- * @brief Display interface header file
+ * @brief Frontend interface header file
  */
-#ifndef BABU_DISPLAY_INTERFACE_HEADER
-#define BABU_DISPLAY_INTERFACE_HEADER
+#ifndef BABU_FRONTEND_INTERFACE_HEADER
+#define BABU_FRONTEND_INTERFACE_HEADER
 
 namespace babu {
 
 /**
- * @brief Display interface
+ * @brief Frontend interface
  */
-class IDisplay {
+class IFrontend {
   public:
     /**
      * @brief Virtual destructor
      */
-    virtual ~IDisplay() { }
+    virtual ~IFrontend() { }
 
     /**
      * @brief Interface to display the temperature
@@ -26,4 +26,4 @@ class IDisplay {
 
 } // namespace babu
 
-#endif /* BABU_DISPLAY_INTERFACE_HEADER */
+#endif /* BABU_FRONTEND_INTERFACE_HEADER */

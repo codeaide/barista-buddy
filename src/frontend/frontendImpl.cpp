@@ -1,9 +1,9 @@
 /**
- * @brief Display implementation source file
+ * @brief Frontend implementation source file
  */
 
 // includes
-#include "displayImpl.hpp"
+#include "frontendImpl.hpp"
 
 // LED ON/OFF sequence for digits
 constexpr byte LED_SEQ_N0[8] = {B01111000,B11001100,B11011100,B11111100,B11101100,B11001100,B01111000,B00000000};
@@ -32,12 +32,12 @@ constexpr byte* LED_SEQUENCES[] = {
 };
 
 // Default constructor
-babu::Display::Display(int pinDIN, int pinCLK, int pinCS, int nDevices) : BaseModule("Display"),
-                                                                          m_oLedCtrl(pinDIN, pinCLK, pinCS, nDevices) {
+babu::Frontend::Frontend(int pinDIN, int pinCLK, int pinCS, int nDevices) : BaseModule("Frontend"),
+                                                                            m_oLedCtrl(pinDIN, pinCLK, pinCS, nDevices) {
 }
 
 // Method to initialize the module
-bool babu::Display::init() {
+bool babu::Frontend::init() {
   // the MAX72XX is in power-saving mode on startup
   // we have to do a wakeup call
 
@@ -60,7 +60,7 @@ bool babu::Display::init() {
 }
 
 // Implementation of interface to display the temperature
-void babu::Display::displayTemperature(float tempValue) {
+void babu::Frontend::displayTemperature(float tempValue) {
   int roundVal = -1;
   bool bDecimalAtEnd = false;
 
