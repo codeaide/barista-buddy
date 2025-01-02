@@ -6,9 +6,9 @@
 #include "sensorImpl.hpp"
 
 babu::Sensor::Sensor(int ioPin) : BaseModule("Sensor"),
-                                  m_iDevices(-1),
                                   m_oOneWire(ioPin),
-                                  m_oSensors(&m_oOneWire) {
+                                  m_oSensors(&m_oOneWire),
+                                  m_iDevices(-1) {
 }
 
 // Method to initialize the module

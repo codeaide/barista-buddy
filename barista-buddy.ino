@@ -55,7 +55,7 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
 
   // loop through all available modules
-  for (int iIndex = 0; iIndex < NUM_MODULES ; iIndex++) {
+  for (uint8_t iIndex = 0; iIndex < NUM_MODULES ; iIndex++) {
     // initialize module
     if (!oModules[iIndex]->init()) {
       Serial.println("Failed to initialize \"" + oModules[iIndex]->getName() + "\" module!");
@@ -70,7 +70,7 @@ void loop() {
   Serial.println("Running...");
 
   // loop through all available modules
-  for (int iIndex = 0; iIndex < NUM_MODULES ; iIndex++) {
+  for (uint8_t iIndex = 0; iIndex < NUM_MODULES ; iIndex++) {
     // process module
     if (!oModules[iIndex]->process()) {
       Serial.println("Failed to process \"" + oModules[iIndex]->getName() + "\" module!");

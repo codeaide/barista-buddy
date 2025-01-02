@@ -44,6 +44,20 @@ class Frontend : public BaseModule, public IFrontend {
   private:
     // LED control object
     LedControl m_oLedCtrl;
+
+    // Byte sequence for matrix LEDs
+    static const byte LED_SEQ_N0[8];
+    static const byte LED_SEQ_N1[8];
+    static const byte LED_SEQ_N2[8];
+    static const byte LED_SEQ_N3[8];
+    static const byte LED_SEQ_N4[8];
+    static const byte LED_SEQ_N5[8];
+    static const byte LED_SEQ_N6[8];
+    static const byte LED_SEQ_N7[8];
+    static const byte LED_SEQ_N8[8];
+    static const byte LED_SEQ_N9[8];
+
+    static const byte* LED_SEQUENCES[];
 };
 
 } // namespace babu
