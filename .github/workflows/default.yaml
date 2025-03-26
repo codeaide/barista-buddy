@@ -17,10 +17,12 @@ on:
 
 # Specify the list of jobs that will be run concurrently
 jobs:
-  # Name of the job - can be whatever
+  # Build job identifier - can be whatever
   build:
-    # Specify the platform GitHub should use to run the workflow
-    runs-on: [ ubuntu-latest ]
+    # Name for the job
+    name: Build Project
+    # Specify the platforms GitHub should use to run the workflow
+    runs-on: [ ubuntu-24.04 ]
     # Environment variables for this job
     env:
       ARDUINO_PLATFORM: 'arduino:avr'
@@ -29,7 +31,7 @@ jobs:
     steps:
       # First, we clone the repo using the checkout action
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
       # Next we use the arduino/setup-arduino-cli action to install and
       # configure the Arduino CLI on the system
       - name: Setup Arduino CLI
@@ -50,4 +52,27 @@ jobs:
       # Finally, compile the sketch, using the FQBN that was set
       - name: Compile Sketch
         run: arduino-cli compile --fqbn $ARDUINO_PLATFORM_FQBN
-
+  # Test job identifier - can be whatever
+  test:
+    # Name for the job
+    name: Test Project
+    # Specify the platforms GitHub should use to run the workflow
+    runs-on: [ ubuntu-24.04 ]
+    # Define the list of steps this job will run
+    steps:
+      # First, we clone the repo using the checkout action
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+      # Build the project using the CMake action
+      - name: CMake Build
+        uses: threeal/cmake-action@v2.1.0
+        with:
+          # Specify arguments for CMake
+          generator: Ninja
+          options: BUILD_TESTING=ON
+      # Finally, test the project using the CTest action
+      - name: CTest Execution
+        uses: threeal/ctest-action@v1.1.0
+        with:
+          # Enable verbose execution
+          verbose: true
